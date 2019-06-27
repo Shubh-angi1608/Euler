@@ -1,0 +1,23 @@
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+    int Num1 = 1;
+    int Num2 = 2;
+    int Num3;
+    int sum = 0;
+    for(int i = 3; Num3<4000000; i++)
+    {
+        Num3 = Num1 + Num2;
+        Num1 = Num2;
+        Num2 = Num3;
+        if(Num3 % 2 == 0)
+        {
+            sum = sum + Num3;
+        }
+    }
+    cout<<sum + 2;
+}
+
