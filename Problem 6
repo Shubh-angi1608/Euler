@@ -1,0 +1,27 @@
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+    int sumofsquare = 0;
+    int squareofsum = 0;
+    int sum = 0;
+    int square;
+    int difference;
+    for(int i = 1; i<=100; i++)
+    {
+        square = i*i;
+        sumofsquare += square;
+    }
+    cout<<sumofsquare<<endl;
+    for(int j = 1; j<=100; j++)
+    {
+        sum += j;
+    }
+    squareofsum = sum * sum;
+    cout<<squareofsum<<endl;
+    difference = squareofsum - sumofsquare;
+    cout<<difference<<endl;
+    return 0;
+}
