@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    long *num;
+    num = new long[2000000];
+    long sum = 0;
+    for(long i =2; i<2000000; i++)
+    {
+        for(long j = i * i; j<2000000; j+=i)
+        {
+            num[j-1] = 1;
+        }
+    }
+    for(long k = 2; k<2000000; k++)
+    {
+        if(num[k-1] == 0)
+        {
+            sum = sum + k;
+        }
+    }
+    cout<<"Sum = \t"<<sum<<endl;
+}
