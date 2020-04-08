@@ -1,0 +1,31 @@
+#include<iostream>
+#include<math.h>
+
+using namespace std;
+
+int main()
+{
+    long digit, four, Num = 0, Sum = 0;
+    long temp;
+    long *num;
+    num = new long[355000];
+    for(long i = 10; i<355000; i++)
+    {
+        num[i] = i;
+        temp = num[i];
+        while(num[i] > 0)
+        {
+            digit = num[i] % 10;
+            num[i] = num[i] / 10;
+            four = pow(digit, 5);
+            Num = Num + four;
+        }
+        if(temp == Num)
+        {
+            Sum = Sum + Num;
+        }
+        Num = 0;
+    }
+    cout<<Sum<<"\t YES";
+    delete []num;
+}
