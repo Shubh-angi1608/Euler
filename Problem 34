@@ -1,0 +1,44 @@
+#include<iostream>
+
+using namespace std;
+
+int FACT(int dig)
+{
+    int facto = 1;
+    if(dig == 0)
+    {
+        return 1;
+    }
+    while(dig > 1)
+    {
+        facto = facto * dig;
+        dig--;
+    }
+    return facto;
+}
+
+int main()
+{
+    long digit, factorial = 1, Sum = 0, temp;
+    long *num;
+    num = new long[2550000];
+    for(long i = 10; i<2550000; i++)
+    {
+        int SumF = 0;
+        num[i] = i;
+        temp = num[i];
+        while(num[i] > 0)
+        {
+            digit = num[i] % 10;
+            num[i] = num[i] / 10;
+            factorial = FACT(digit);
+            SumF = SumF + factorial;
+        }
+        if(SumF == temp)
+        {
+            Sum = Sum + temp;
+        }
+    }
+    cout<<Sum<<" ";
+    delete []num;
+}
