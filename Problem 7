@@ -1,0 +1,43 @@
+#include<iostream>
+
+using namespace std;
+
+int PrimeCheck(int num)
+{
+    int counter = 3;
+    if(num <= 1)
+    {
+        return 0;
+    }
+    if(num == 2)
+    {
+       return 1; 
+    }
+    while((counter * counter) <= num)
+    {
+        if(num % counter == 0)
+        {
+            return 0;
+        }
+        else 
+        {
+            counter = counter + 2;
+        }
+    }
+    return 1;
+}
+int main()
+{
+    int NumberofPrime = 1, PC;
+    int number = 1;
+    while(NumberofPrime < 10001)
+    {
+        number = number + 2;
+        PC = PrimeCheck(number);
+        if(PC == 1)
+        {
+            NumberofPrime++;
+        }
+    }
+    cout<<number<<" ";
+}
