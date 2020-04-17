@@ -1,1 +1,55 @@
+#include<iostream>
+#include<conio.h>
+#include<math.h>
 
+using namespace std;
+
+int NumberofDIGIT(int pro)
+{
+	int Rem, count = 0;
+	while(pro > 0)
+	{
+		Rem = pro % 10;
+		pro = pro / 10;
+		count ++;
+	}
+	return count;
+}	
+	
+int isPalindrome(int prod)
+{
+	int Remainder, Num = 0, No, power;
+	int Number;
+	Number = prod;
+	int counter = 0;
+	counter = NumberofDIGIT(prod) - 1;
+	while(prod > 0)
+	{
+		Remainder = prod % 10;
+		power = pow(10, counter);
+		counter--;
+		No = Remainder * power;
+		Num = Num + No;
+		prod = prod / 10;
+		if(Number == Num && NumberofDIGIT(Number) == 6)
+		{
+			cout<<Number<<" ";
+		}
+	}
+}
+
+void main()
+{
+	int product;
+	int counter;
+    clrscr();
+	for(int i = 999; i>=1; i--)
+	{
+	 for(int j = 999; j>=1; j--)
+	 {
+		 product = i * j;
+		 isPalindrome(product);
+	 }
+	}
+}	
+	
