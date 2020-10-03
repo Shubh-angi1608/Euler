@@ -1,0 +1,31 @@
+#include<iostream>
+
+using namespace std;
+
+int ways(int amount, int coins[], int size)
+{
+    if(amount < 0)
+    {
+        return 0;
+    }
+    if(amount == 0)
+    {
+        return 1;
+    }
+    if(size == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return ways(amount, coins, size-1) + ways(amount-coins[size-1], coins, size);
+    }
+}
+
+int main()
+{
+    int amount = 200, No_ways, size = 8;
+    int coins[] = {1,2,5,10,20,50,100,200};
+    No_ways = ways(amount, coins,size);
+    cout<<No_ways;
+}
