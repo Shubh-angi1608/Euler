@@ -1,0 +1,29 @@
+#include<iostream>
+#include<math.h>
+
+using namespace std;
+
+int main()
+{
+    int TriangularNo = 0;
+    int num = 0;
+    int divisors;
+    while(1)
+    {
+        num++;
+        TriangularNo = TriangularNo + num;
+        divisors = 0;
+        for(int i = 1; i < floor(sqrt(TriangularNo)); i++)
+        {
+            if(TriangularNo % i == 0)
+            {
+                divisors = divisors + 2;
+            }
+        }
+        if(divisors > 500)
+        {
+            break;
+        }
+    }
+    cout<<divisors<<"\n"<<TriangularNo;
+}
