@@ -1,36 +1,39 @@
+
+
+
 #include<iostream>
 
 using namespace std;
 
-int FindDigit(long long num)
-{
-    int count = 0;
-    while(num!=0)
-    {
-        num = num / 10;
-        count++;
-    }
-    return count;
-}
-int Fibbonacci()
-{
-    long long Fn1 = 1, Fn2 = 1;
-    int count1 = 0;
-    long long Fn;
-    for(Fn = 0; FindDigit(Fn) != 1000;)
-    {
-        Fn = Fn1 + Fn2;
-        Fn1 = Fn2;
-        Fn2 = Fn;
-        count1++;  
-    }
-    return count1;
-}
-
 int main()
 {
-    cout<<Fibbonacci();
+    int index = 2;
+    int x[1000],y[1000],z[1000];
+    for(int i = 0; i < 1000; i++)
+    {
+        x[i] = y[i] = z[i] = 0;
+    }
+    y[999]=1;
+    z[999]=1;
+    do
+    {
+        for(int j = 999; j >= 0; j--)
+        {
+            x[j]=z[j];
+            z[j]=z[j]+y[j];
+            y[j]=x[j];
+        }
+        index++;
+        for(int k = 998; k >= 0; k--)
+        {
+            x[k] = x[k] + (x[k+1]/10);
+            x[k+1] = x[k+1] % 10;
+            y[k] = y[k] + (y[k+1]/10);
+            y[k+1] = y[k+1] % 10;
+            z[k] = z[k] + (z[k+1]/10);
+            z[k+1] = z[k+1] % 10; 
+        }
    
+    }while(z[0]==0);
+    cout<<index;
 }
-
-
