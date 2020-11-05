@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int perm[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}; 
+    int count = 1, numPerm = 1000000, temp = 0;
+    int N = 10;
+    while(count < numPerm) 
+    {
+        int i = N-1;
+        while(perm[i - 1] >= perm[i]) 
+        {
+            i = i - 1;
+        }
+        int j = N;
+        while(perm[j - 1] <= perm[i - 1]) 
+        {
+            j = j - 1;
+        }
+        temp = perm[i-1];
+        perm[i-1] = perm[j-1];
+        perm[j-1] = temp;
+        i++;
+        j = N;
+        temp = 0;
+        while(i < j) 
+        {
+            temp = perm[i-1];
+            perm[i-1] = perm[j-1];
+            perm[j-1] = temp;
+            i++;
+            j--;
+        }
+        count++;
+    }
+    for(int k = 0; k < N; k++) 
+    {
+        cout<<perm[k];
+    }
+}
